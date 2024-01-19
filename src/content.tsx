@@ -2,8 +2,11 @@ import * as React from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { ExtensionSlot } from "piral-core";
 import HeaderNav from './components/HeaderNav.js';
-import Button from '@mui/material/Button';
 import CardComponent from './components/CardComponent';
+import { styled } from '@mui/material/styles';
+import Box from '@mui/material/Box';
+import Paper from '@mui/material/Paper';
+import Grid from '@mui/material/Grid';
 
 // export const Home: React.FC = () => (
 //   <>
@@ -21,12 +24,6 @@ import CardComponent from './components/CardComponent';
 //       <p>
 //         <Link to="/foo">Subpage</Link>
 //       </p>
-
-//       <Button variant="contained" color="primary">
-//           Hola, Material-UI
-//       </Button>
-      
-      
 //     </div>
 //   </>
 // );
@@ -55,11 +52,40 @@ interface LayoutProps {
 
 export const Layout: React.FC<LayoutProps> = ({ children }) => (
   <>
+  <Box sx={{ flexGrow: 1 }}>
+      <Grid container spacing={2}>
+        <Grid item xs={12}>
+          <header>
+            <HeaderNav />
+          </header>
+        </Grid>
+        <Grid item xs={12} md={8}>
+          <CardComponent title="Buenos dias" content="Contenido de la tarjeta." />
+        </Grid>
+        <Grid item xs={12} md={4}>
+          <CardComponent title="Informacion Importante" content="Contenido de la tarjeta." />
+        </Grid>
+        <Grid item xs={12} md={6}>
+          <CardComponent title="Novedades Cargadas" content="Contenido de la tarjeta." backgroundColor= 'purple' color='white' />
+        </Grid>
+        <Grid item xs={12} md={6}>
+          <CardComponent title="Temas Cargados" content="Contenido de la tarjeta." backgroundColor= 'blue' color='white' />
+        </Grid>
+        <Grid item xs={12} md={4}>
+          <CardComponent title="Avances Objetivos VP 2023 " content="Contenido de la tarjeta." />
+        </Grid>
+        <Grid item xs={12} md={4}>
+          <CardComponent title="Seguimiento IFA" content="Contenido de la tarjeta." />
+        </Grid>
+        <Grid item xs={12} md={4}>
+          <CardComponent title="Resumenes Ejecutivos" content="Contenido de la tarjeta." />
+        </Grid>
+      </Grid>
+    </Box>
+    
     <header>
-    <HeaderNav />
     </header>
-    <main>
-      <CardComponent title="Título de la Tarjeta" content="Contenido de la tarjeta." />
+    <main>      
     </main>
     <footer>
       {/* <ExtensionSlot
