@@ -20,6 +20,7 @@ import avatar from '../assets/avatar.jpg';
 
 const HeaderNav = () => {
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
+  const [selectedValue, setSelectedValue] = useState(1);
 
   const toggleDrawer = (open) => (event) => {
     if (
@@ -51,7 +52,7 @@ const HeaderNav = () => {
             <MenuIcon />
           </IconButton>
           <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-            Mi App
+            YPF 360
           </Typography>
           <FormControl sx={{ flexGrow: 1, marginRight: '8px' }}>
             <InputLabel htmlFor="select-options" sx={{ color: 'white' }}>
@@ -59,12 +60,13 @@ const HeaderNav = () => {
             </InputLabel>
             <Select
               id="select-options"
-              disableUnderline
+              value={selectedValue || 'Select Options'}
+              onChange={(event) => setSelectedValue(event.target.value)}
               IconComponent={() => <ArrowDropDownIcon />}
               sx={{ color: 'white' }}
             >
-              <MenuItem value={10}>Opción 1</MenuItem>
-              <MenuItem value={20}>Opción 2</MenuItem>
+              <MenuItem value={1}>Opción 1</MenuItem>
+              <MenuItem value={2}>Opción 2</MenuItem>
             </Select>
           </FormControl>
           <IconButton color="inherit" sx={{marginRight: '24px'}}>
