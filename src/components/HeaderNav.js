@@ -16,6 +16,7 @@ import InputLabel from '@mui/material/InputLabel';
 import MenuItem from '@mui/material/MenuItem';
 import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
 import { Link } from 'react-router-dom';
+import avatar from '../assets/avatar.jpg';
 
 const HeaderNav = () => {
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
@@ -40,7 +41,7 @@ const HeaderNav = () => {
   return (
     <>
       <AppBar position="static">
-        <Toolbar>
+        <Toolbar>               
           <IconButton
             edge="start"
             color="inherit"
@@ -52,7 +53,7 @@ const HeaderNav = () => {
           <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
             Mi App
           </Typography>
-          <FormControl sx={{ flexGrow: 1, marginRight: '8px', right: '20rem' }}>
+          <FormControl sx={{ flexGrow: 1, marginRight: '8px' }}>
             <InputLabel htmlFor="select-options" sx={{ color: 'white' }}>
               Select Options
             </InputLabel>
@@ -60,9 +61,8 @@ const HeaderNav = () => {
               id="select-options"
               disableUnderline
               IconComponent={() => <ArrowDropDownIcon />}
-              sx={{ color: 'white', width: '600px' }}
+              sx={{ color: 'white' }}
             >
-              {/* Agrega opciones de Select según sea necesario */}
               <MenuItem value={10}>Opción 1</MenuItem>
               <MenuItem value={20}>Opción 2</MenuItem>
             </Select>
@@ -70,7 +70,7 @@ const HeaderNav = () => {
           <IconButton color="inherit" sx={{marginRight: '24px'}}>
             <NotificationsIcon />
           </IconButton>
-          <Avatar alt="Usuario" src="/ruta-del-avatar.jpg" />
+          <Avatar alt="Usuario" src={avatar} /> 
         </Toolbar>
       </AppBar>
       <Drawer
